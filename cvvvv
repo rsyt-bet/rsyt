@@ -1,0 +1,196 @@
+game:GetService("StarterGui"):SetCore("SendNotification",{                Title = "作者";                Text ="😡";                Duration = 4;            })
+
+local Library = loadstring(game:HttpGet("https://www.soggy-ware.cf/Libs/PromptGui.lua"))()
+Library:New({
+	Title = "🤓🤓",    
+	 Footer = "赞助商game🐔",   
+	 Text = "作者",        
+	 Icon = "http://www.roblox.com/thumbs/asset.ashx?assetid=&x=100&y=100&format=png",
+	 Yes = function()		
+	 print("game原创 Pressed")	
+	 end,	
+	 Cancel = function()		     
+	 print("game Pressed")	
+	 end})
+
+local OrionLib = loadstring(game:HttpGet("https://pastebin.com/raw/xLRUSiKx"))()
+
+local Window = OrionLib:MakeWindow({Name = "秋诗", HidePremium = false, SaveConfig = true, IntroText = "自动检测中，你现在所使用的执行器为："..identifyexecutor(), ConfigFolder = "doors脚本"})
+
+if game.PlaceId == 6516141723 then    OrionLib:MakeNotification({        Name = "错误",        Content = "请在游戏中执行,而不是在大厅中",        Time = 5    })end
+
+local e = Window:MakeTab({
+	Name = "doors普通功能",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+
+e:AddButton({
+	Name = "普通飞行",
+	Callback = function()
+	loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\39\104\116\116\112\115\58\47\47\103\105\115\116\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\109\101\111\122\111\110\101\89\84\47\98\102\48\51\55\100\102\102\57\102\48\97\55\48\48\49\55\51\48\52\100\100\100\54\55\102\100\99\100\51\55\48\47\114\97\119\47\101\49\52\101\55\52\102\52\50\53\98\48\54\48\100\102\53\50\51\51\52\51\99\102\51\48\98\55\56\55\48\55\52\101\98\51\99\53\100\50\47\97\114\99\101\117\115\37\50\53\50\48\120\37\50\53\50\48\102\108\121\37\50\53\50\48\50\37\50\53\50\48\111\98\102\108\117\99\97\116\111\114\39\41\44\116\114\117\101\41\41\40\41\10\10")()
+  	end
+})
+
+e:AddButton({
+	Name = "飞行装备",
+	Callback = function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/PSXhuge/1/main/feixing"))()		
+  	end
+})
+
+e:AddButton({
+	Name = "防止掉线（反挂机）",
+	Callback = function()
+	print("Anti Afk On")
+		local vu = game:GetService("VirtualUser")
+		game:GetService("Players").LocalPlayer.Idled:connect(function()
+		   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		   wait(1)
+		   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		end)
+  	end
+})
+
+
+
+e:AddToggle({
+	Name = "穿墙",
+	Default = false,
+	Callback = function()
+		if Value then
+		    Noclip = true
+		    Stepped = game.RunService.Stepped:Connect(function()
+			    if Noclip == true then
+				    for a, b in pairs(game.Workspace:GetChildren()) do
+                        if b.Name == game.Players.LocalPlayer.Name then
+                            for i, v in pairs(game.Workspace[game.Players.LocalPlayer.Name]:GetChildren()) do
+                                if v:IsA("BasePart") then
+                                    v.CanCollide = false
+                                end
+                            end
+                        end
+                    end
+			    else
+				    Stepped:Disconnect()
+			    end
+		    end)
+	    else
+		    Noclip = false
+	    end
+	end
+})
+
+
+
+local Tap = Window:MakeTab({
+	Name = "通用功能",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tap:AddTextbox({
+	Name = "跳跃高度设置",
+	Default = "",
+	TextDisappear = true,
+	Callback = function()
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	end
+})
+
+Tap:AddTextbox({
+	Name = "移动速度设置",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end
+})
+
+Tap:AddTextbox({
+	Name = "重力设置",
+	Default = ".",
+	TextDisappear = true,
+	Callback = function(Value)
+		game.Workspace.Gravity = Value
+	end
+})
+
+Tap:AddToggle({
+	Name = "夜视",
+	Default = false,
+	Callback = function()
+		if Value then
+		    game.Lighting.Ambient = Color3.new(1, 1, 1)
+		else
+		    game.Lighting.Ambient = Color3.new(0, 0, 0)
+		end
+	end
+})
+
+
+
+local q = Window:MakeTab({
+	Name = "十字架",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+q:AddButton({
+	Name = "宣传片十字架",
+	Callback = function()
+  	loadstring(game:HttpGet('https://gist.githubusercontent.com/C00LBOZO/0c78ad8c74ca26324c87ede16ce8b387/raw/c0887ac0d24fde80bea11ab1a6a696ec296af272/Crucifix'))()
+  	end
+})
+
+q:AddButton({
+	Name = "seek十字架",
+	Callback = function()
+  	loadstring(game:HttpGet("https://raw.githubusercontent.com/RmdComunnityScriptsProvider/AngryHub/main/Seek%20Crucifix.lua"))()
+  	end
+})
+
+q:AddButton({
+	Name = "万圣十字架",
+	Callback = function()
+  	loadstring(game:HttpGet("https://raw.githubusercontent.com/Mye123/MyeWareHub/main/Halloween%20Crucifix"))()
+  	end
+})
+
+q:AddButton({
+	Name = "蓝线十字架",
+	Callback = function()
+  	loadstring(game:HttpGet("https://raw.githubusercontent.com/ZepsyyCodesLUA/Utilities/main/Crucifix"))()
+  	end
+})
+
+local w = Window:MakeTab({
+	Name = "超强功能",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+w:AddButton({
+	Name = "rooms自动行走，彩蛋rooms使用",
+	Callback = function()
+  	loadstring(game:HttpGet("https://" .. "raw.githubusercontent.com/DaRealGeo/roblox/master/rooms-autowalk"))()
+  	end
+})
+
+w:AddButton({
+	Name = "king hub",
+	Callback = function()
+  	loadstring(game:HttpGet(('https://pastebin.com/raw/R8QMbhzv')))()
+  	end
+})
+
+w:AddButton({
+	Name = "反防作弊",
+	Callback = function()
+  	game:GetService("ReplicatedStorage").ItemShop.Lighter:SetAttribute('Price',5)
+  	end
+})
+
+OrionLib:Init()
